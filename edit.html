@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app = "meigenizm">
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meigenizm the movie</title>
+  <!-- Load css styles -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <!--  angularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
+  <script src="./EditController.js"></script>
+  <!-- Fav and touch icons -->
+  </head>
+  <body ng-controller = "EditController">
+    <div class = "container">
+      <div class = "">
+	    <button type = "button" ng-click = "addData()">追加</button>
+    	<button type = "button">選択削除</button>
+      </div>
+      <div class = "table-responsive">
+	    <table class = "table-bordered">
+    	  <thead>
+    	    <th></th>
+    		<th>No.</th>
+    		<th></th>
+    		<th>タイトル</th>
+    		<th>公開年度</th>
+    		<th>俳優</th>
+    		<th>監督</th>
+    		<th>名言</th>
+    		<th>原文</th>
+    		<th>場面</th>
+    		<th>種類</th>
+    		<th>時代</th>
+    		<th>職業</th>
+    		<th>年齢</th>
+    		<th>特殊能力</th>
+    		<th>発生元</th>
+    	  </thead>
+    	<tbody>
+    	  <tr ng-repeat = "movie in movies">
+    	    <td><input type="checkbox" ng-model="movie.flg"></td>
+    		<td>{{$index+1}}</td>
+    		<td><button type ="button" ng-click = "editData(movie)">編集</button></td>
+    		<td>{{movie.Title}}</td>
+    		<td>{{movie.Year}}</td>
+    		<td>{{movie.Actor}}</td>
+    		<td>{{movie.Visor}}</td>
+    		<td>{{movie.Meigen}}</td>
+    		<td>{{movie.Owords}}</td>
+    		<td>{{movie.Scene}}</td>
+    		<td>{{movie.Type}}</td>
+    		<td>{{movie.Era}}</td>
+    		<td>{{movie.Job}}</td>
+    		<td>{{movie.Age}}</td>
+    		<td>{{movie.Gift}}</td>
+    		<td>{{movie.Origin}}</td>
+    	  </tr>
+    	</tbody>
+      </table>
+    </div>
+    <div ng-show = "data">
+      <button type = "button" ng-click = "updateData(data)">更新</button>
+      <button type = "button" ng-click = "cancelData()">キャンセル</button>
+	  <table class = "table table-bordered">
+	    <tbody>
+	      <tr>
+    	    <td>タイトル</td>
+    	    <td><input type = "text" ng-model = "data.Title"></td>
+    	  </tr>
+    	  <tr>
+    	    <td>公開年度</td>
+    	    <td><input type = "text" ng-model = "data.Year"></td>
+    	  </tr>
+    	  <tr>
+    	    <td>俳優</td>
+    	    <td><input type = "text" ng-model = "data.Actor"></td>
+    	  </tr>
+          <tr>
+    	    <td>監督</td>
+    	    <td><input type = "text" ng-model = "data.Visor"></td>
+    	  </tr>
+    	  <tr>
+    	    <td>AmazonLink</td>
+    	    <td><input type = "text" ng-model = "data.Link"></td>
+    	  </tr>
+    	  <tr>
+    	    <td>名言</td>
+    	    <td><textarea ng-model = "data.Meigen"></textarea></td>
+    	  </tr>
+    	  <tr>
+    	    <td>原文</td>
+    	    <td><textarea ng-model = "data.OWords"></textarea></td>
+    	  </tr>
+    	  <tr>
+    	    <td>場面</td>
+    	    <td><textarea ng-model = "data.Scene"></textarea></td>
+    	  </tr>
+    	  <tr>
+    	    <td>あらすじ</td>
+    	    <td><textarea ng-model = "data.Story"></textarea></td>
+    	  </tr>
+    	  <tr>
+    	    <td>画像パス</td>
+    	    <td><textarea ng-model = "data.Image"></textarea></td>
+    	  </tr>
+    	  <tr>
+    	    <td>映画の種類</td>
+    	    <td>
+    	      <div class = "form-group">
+    	    　　<label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Type" value="0" />SF・アクション
+               </label>  
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Type" value="1" />ドラマ
+               </label>
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Type" value="2" />コメディ
+               </label>
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Type" value="3" />アニメ系
+               </label>
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Type" value="4" />サスペンス・ホラー
+　　　　　　　　　  </label>
+                <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Type" value="5" />邦画
+　　　　　　　　　  </label>
+               </div>
+            </td>
+    	  </tr>
+    	  <tr>
+    	    <td>時代</td>
+    	    <td>
+    	      <div class = "form-group">
+    	    　　<label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Era" value="0" />古代
+               </label>  
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Era" value="1" />中世
+               </label>
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Era" value="2" />近代
+               </label>
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Era" value="3" />現代
+               </label>
+               <label class="radio-inline">
+　　　　　　　　　　　<input type="radio" ng-model="data.Era" value="4" />未来
+　　　　　　　　　  </label>
+               </div>
+            </td>
+    	  </tr>
+    	  <tr>
+    	  	<td>主人公の職業</td>
+    	    <td>
+    	      <div class = "form-group">
+    	        <label class="radio-inline">
+　　　　　　　　　　　 <input type="radio" ng-model="data.Job" value="0" />学生
+                </label>
+                <label class="radio-inline">
+　　　　　　　　　　　 <input type="radio" ng-model="data.Job" value="1" />会社員
+                </label>
+                <label class="radio-inline">
+　　　　　　　　　　　 <input type="radio" ng-model="data.Job" value="2" />医者
+                </label>
+                <label class="radio-inline">
+　　　　　　　　　　  <input type="radio" ng-model="data.Job" value="3" />スパイ、マフィア
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Job" value="4" />教師
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Job" value="5" />昔の職業
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Job" value="99" />その他
+　　　　　　　　　  </label>
+              </div>
+            </td>
+    	  </tr>
+    	  <tr>
+    	    <td>年齢</td>
+    	    <td>
+    	      <div class = "form-group">
+    	        <label class="radio-inline">
+　　　　　　　　　　 　<input type="radio" ng-model="data.Age" value="0" />10代
+               </label>
+               <label class="radio-inline">
+                  <input type="radio" ng-model="data.Age" value="1" />20代
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Age" value="2" />30代
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Age" value="3" />40代
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Age" value="99" />全年齢
+　　　　　　　　　  </label>	
+              </div>
+            </td>
+    	  </tr>
+    	  <tr>
+    	    <td>特殊能力</td>
+    	    <td>
+    	      <div class = "form-group">
+    	        <label class="radio-inline">
+　　　　　　　　　　  <input type="radio" ng-model="data.Gift" value="0" />なし
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Gift" value="1" />あり
+　　　　　　　　　  </label>
+              </div>	
+            </td>
+    	  </tr>
+    	  <tr>
+    	    <td>発生元</td>
+    	    <td>
+    	      <div class = "form-group">
+    	        <label class="radio-inline">
+　　　　　　　　　　  <input type="radio" ng-model="data.Origin" value="0" />オリジナル
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Origin" value="1" />実話
+　　　　　　　　　  </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Origin" value="2" />小説
+　　　　　　　　　  </label>
+                <label class="radio-inline">
+                  <input type="radio" ng-model="data.Origin" value="3" />アニメ、漫画
+　　　　　　　　　  </label>
+              </div>	
+            </td>
+    	  </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
