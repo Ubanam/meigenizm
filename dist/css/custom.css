@@ -53,6 +53,17 @@
 	bottom: -8px;
 	left: -8px;
 }
+/********************************************
+				carousel SECTION
+********************************************/
+
+.carousel item{
+	height:100%;
+}
+.carousel img{
+	position:absolute;
+	width: 100%;
+}
 
 /********************************************
 				DETAIL SECTION
@@ -261,6 +272,36 @@ blockquote {
 	*/
 }
 .about img{
+	width:100%;
+}
+.img-box{
+  position: relative;
+}
+.img-box-mini{
+  position: absolute;
+  bottom:50%;
+  text-align: center;
+  background: rgba(0,0,0,0.4);
+  left: 0px;
+  width:100%;
+   color: #fff;
+ }
+.img-box-text{
+  text-align: center;
+  width: 100%;
+}
+
+/********************************************
+				PICKUP SECTION
+********************************************/
+.pickup{
+	width:100%;
+    /*
+	background:#000;
+    color:#fff;
+	*/
+}
+.pickup img{
 	width:100%;
 }
 .img-box{

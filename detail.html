@@ -37,11 +37,10 @@
   </head>
 
   <body ng-controller = "DetailController as Detail"> 
-    <h3>作品詳細</h3>
     <div class="detail">
 	    <div>
 		    <div class="detail-box">
-		      <h2>{{data.Title}}({{data.Year}})</h2>
+		      <h3>{{data.Title}}({{data.Year}})</h3>
 		    </div>
           <div class = "row">
             <div class = "col-md-6">
@@ -51,12 +50,12 @@
             </div>
             <div class = "col-md-6">
               <div class = "detail-box">
-                <h3>名言</h3>
-                <h3>{{data.Meigen}}</h3>
+                <h4名言</h4>
+                <h4>{{data.Meigen}}</h4>
               </div>
               <div class = "detail-box">
-                <h3>主演:{{data.Actor}}</h3>
-                <h3>監督：{{data.Visor}}</h3>
+                <h4>主演:{{data.Actor}}</h4>
+                <h4>監督：{{data.Visor}}</h4>
               </div>
             </div>
           </div>
@@ -64,7 +63,7 @@
 		</div>  
     <div id = "Affiliate" class = "row">
       <div class = "col-md-6">
-        <h3>作品を購入する</h3>
+        <h4>作品を購入する</h4>
         <a class="btn btn-primary" href={{data.Link}}　target="_blank">Amazonで商品を探す</a>
         <a class="btn btn-primary">楽天で商品を探す</a>
       </div>
