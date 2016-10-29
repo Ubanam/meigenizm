@@ -36,7 +36,6 @@ exports.updateData = function(req, res){
 				Year: movie.Year,   //公開年度
 				Actor: movie.Actor, //俳優
 				Visor: movie.Visor, //監督
-				Link: movie.Link,   //Amazon
 				Meigen: movie.Meigen, //名言
 				Story: movie.Story,  //あらすじ
 				Image: movie.Image,  //画像
@@ -47,7 +46,10 @@ exports.updateData = function(req, res){
 				Gift:movie.Gift, //特殊能力
 				Origin:movie.Origin, //派生元
 				OWords:movie.OWords, //原文
-				Scene:movie.Scene //場面
+				Scene:movie.Scene, //場面
+				Link: movie.Link,   //Amazon
+				Rakuten:movie.Rakuten,//楽天
+				Yahoo:movie.Yahoo//yahoo
 				} 
 			}, 
 			function (err) {

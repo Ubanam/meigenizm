@@ -21,6 +21,8 @@ var MovieSchema = new mongoose.Schema({
 	Actor:String, //俳優
 	Visor:String, //監督
 	Link:String, //Amazon
+	Rakuten:String, //楽天
+	Yahoo:String, //Yahoo
 	Meigen:String, //名言
 	Story:String, //あらすじ
 	Image:String, //画像イメージ
