@@ -49,7 +49,11 @@ exports.updateData = function(req, res){
 				Scene:movie.Scene, //場面
 				Link: movie.Link,   //Amazon
 				Rakuten:movie.Rakuten,//楽天
-				Yahoo:movie.Yahoo//yahoo
+				Yahoo:movie.Yahoo,//yahoo
+				Recommends1:movie.Recommends1,//関連情報１
+				Rec1Text:movie.Rec1Text,//関連情報１
+				Recommends2:movie.Recommends2, //関連情報2
+				Rec2Text:movie.Rec2Text//関連情報１
 				} 
 			}, 
 			function (err) {

@@ -1,4 +1,4 @@
-var myApp = angular.module('meigenizm',['ngRoute','ngResource']);
+var myApp = angular.module('meigenizm',['ngRoute',,'ngSanitize','ngResource']);
 
 //////////////////////////////////////////
 //Setting Factory

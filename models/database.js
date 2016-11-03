@@ -23,6 +23,10 @@ var MovieSchema = new mongoose.Schema({
 	Link:String, //Amazon
 	Rakuten:String, //楽天
 	Yahoo:String, //Yahoo
+	Recommends1:String,//関連情報1
+	Rec1Text:String,//関連情報1
+	Recommends2:String,//関連情報2
+	Rec2Text:String,//関連情報2
 	Meigen:String, //名言
 	Story:String, //あらすじ
 	Image:String, //画像イメージ
