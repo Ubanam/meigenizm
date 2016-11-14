@@ -41,7 +41,8 @@ var MovieSchema = new mongoose.Schema({
 	SadParam:Number, //泣けるパラメータ
 	LaughParam:Number, //笑えるパラメータ
 	HealParam:Number, //癒されるパラメータ
-	MotivateParam:Number //やる気パラメータ
+	MotivateParam:Number, //やる気パラメータ
+	Rate:Number//評価レート
 });
 
 mongoose.model('Movie',MovieSchema);

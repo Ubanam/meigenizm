@@ -25,6 +25,22 @@ exports.selectData = function(req, res){
   });
 };
 
+exports.addRate = function(req, res){
+	var movie = req.body;
+	console.log('add Rate ↓');
+	console.log(movie);
+	Movie.update({ _id: movie._id },
+			{ $set: { 
+				Rate: movie.Rate + 1 //評価レート
+				} 
+			}, 
+			function (err) {
+				if(err){
+					console.log('error:' + err);
+				}		
+		res.json(movie);
+	});
+}
 
 exports.updateData = function(req, res){
 	var movie = req.body;
@@ -53,7 +69,8 @@ exports.updateData = function(req, res){
 				Recommends1:movie.Recommends1,//関連情報１
 				Rec1Text:movie.Rec1Text,//関連情報１
 				Recommends2:movie.Recommends2, //関連情報2
-				Rec2Text:movie.Rec2Text//関連情報１
+				Rec2Text:movie.Rec2Text,//関連情報2
+				Rate:movie.Rate//評価レート
 				} 
 			}, 
 			function (err) {
@@ -63,6 +80,9 @@ exports.updateData = function(req, res){
 		res.json(movie);
 	});
 }
+
+
+
 
 exports.addData = function(req, res){
 	var movie = new Movie(req.body);

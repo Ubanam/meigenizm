@@ -10,11 +10,11 @@
     <link rel="icon" href="favicon.ico">
     <title>Meigenizm the Movie</title>
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="dist/css/navbar-fixed-top.css" rel="stylesheet">
     <link href="dist/css/carousel.css" rel="stylesheet">
     <link href="dist/css/custom.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -27,7 +27,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]--> 
     <!--  angularJS -->
-    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
@@ -49,21 +48,64 @@
               </div>
             </div>
             <div class = "col-sm-6">
-              <div class = "detail-box">
+              <div id="#" class = "detail-box">
                 <h4名言</h4>
                 <h4>{{data.Title}}({{data.Year}})</h4>
               </div>
               <div class = "detail-box">
-                <h4>主演:{{data.Actor}}</h4>
-                <h4>監督：{{data.Visor}}</h4>
+                <div>
+                  <label for="input-6" class="control-label">獲得投票数:{{data.Rate}}</label>
+                  <label for="input-6" class="control-label" style="text-align:right"></label>
+                  <label ng-if="devote">
+                    <a class = "btn" ng-click="devote(data)" ng-hide="devoteFlg">投票する</a>
+                    <a class = "btn disablesd" ng-show="devoteFlg">投票済</a>
+                  </label>
+                </div>
+                <div>
+                  <label for="input-6" class="control-label">おすすめ度：</label>
+                  <rating value="data.Rate / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
+                  <label for="input-6" class="control-label" style="text-align:right">{{data.Rate}} /100 </label>
+                </div>
+                <!--
+                <div class = "rate" ng-click = "devote(data)">
+                  <label for="input-6" class="control-label">スッキリする映画:</label>
+                  <rating value="data.Rate / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
+                  <label for="input-6" class="control-label" style="text-align:right">{{data.Rate}} /100 </label>
+                  <i class="fa fa-thumbs-up right" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <label for="input-6" class="control-label">笑える映画:</label>
+                  <rating value="data.Rate / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
+                  <label for="input-6" class="control-label" style="text-align:right">{{data.Rate}} /100 </label>
+                </div>
+                <div>
+                  <label for="input-6" class="control-label">恋する映画:</label>
+                  <rating value="data.Rate / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
+                  <label for="input-6" class="control-label" style="text-align:right">{{data.Rate}} /100 </label>
+                </div>
+                <div>
+                  <label for="input-6" class="control-label">泣ける映画:</label>
+                  <rating value="data.Rate / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
+                  <label for="input-6" class="control-label" style="text-align:right">{{data.Rate}} /100 </label>
+               </div>
+                <div>
+                  <label for="input-6" class="control-label">ほのぼのする映画:</label>
+                  <rating value="data.Rate / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
+                  <label for="input-6" class="control-label" style="text-align:right">{{data.Rate}} /100 </label>
+                </div>
+                -->
+                <!--
+                <a class="btn btn-primary" ng-click = "addRate(data)">おすすめする</a>
+                -->
+                
               </div>
             </div>
           </div>
       </div>
 		</div>  
     <div id = "recommends" class="row">
-      <div class = "col-sm-8">
-        <h4>関連情報</h4>
+      <div class = "col-sm-7">
+        <h4>関連情報</h4>  
         <div class="row">
           <div class = "col-xs-6">
             <div ng-bind-html="data.Recommends1"></div>
@@ -77,14 +119,29 @@
         <div class = "row">
           <div class = "col-sm-12">
             <h4>作品情報</h4>
+            <p>主演:{{data.Actor}} 監督：{{data.Visor}}</p>
             <p>{{data.Story}}</p>
           </div>
         </div>
       </div>
-      <div class = "col-sm-4">
+      <!--総合ランキング-->
+      <div class = "col-sm-5">
+        <div class = "pickup">
+          <h4>投票ランキング</h4>
+          <div class="row page-header" ng-repeat="movie in movies | orderBy:'-Rate' | limitTo:5">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movie.Image}} ng-click="moveDetail(movie)">
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <p>{{$index+1}}位:{{movie.Title}}</p>
+              <p>{{movie.Meigen}}</p>
+            </div>
+          </div>
+        </div>
         <!-- 類似ランキング-->
       </div>
     </div>
+    <!--
     <div id = "Affiliate" class = "row">
       <div class = "col-sm-6">
         <h4>作品を購入する</h4>
@@ -92,13 +149,16 @@
         <a class="btn btn-primary" href={{data.Rakuten}} target="_blank">楽天で商品を探す</a>
       </div>
     </div>
+    -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="dist/js/bootstrap.min.js"></script>
+    -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

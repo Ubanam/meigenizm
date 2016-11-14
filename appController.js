@@ -1,4 +1,4 @@
-var myApp = angular.module('meigenizm',['ngRoute',,'ngSanitize','ngResource']);
+var myApp = angular.module('meigenizm',['ngRoute','ngSanitize','ngResource','ui.bootstrap']);
 
 //////////////////////////////////////////
 //Setting Factory
@@ -63,11 +63,23 @@ myApp.controller('DetailController',['$scope', '$http','$resource','$location','
 	//Get the movielist data
 	$scope.movies = movies.query();
 	$scope.data = shareData.data;
+	$scope.devoteFlg = false; //投票済判定フラグ
 
-	//linkへの遷移
-	$scope.moveLink = function(link){
-		console.log("link:"+link);
-		$location.href = link;
+	
+	//投票する
+	$scope.devote = function(data){
+		console.log("devote is called");
+		$http.put('/api/movies/rate/'+data._id, data).success(function(data) {
+      console.log(data);
+    });
+		$scope.devoteFlg = true;
+		$scope.data.Rate = $scope.data.Rate + 1; 
+	}
+	//詳細ページ
+	$scope.moveDetail = function(data){
+		//shareData.data =data;
+		$scope.data = data;
+		console.log(data);
 	}
   //End of Controller	
 	
@@ -81,11 +93,7 @@ myApp.controller('AboutController',['$scope', '$http','$resource','$location','m
 	$scope.movies = movies.query();
 	$scope.data = shareData.data;
 
-	//linkへの遷移
-	$scope.moveLink = function(link){
-		console.log("link:"+link);
-		$location.href = link;
-	}
+
   //End of Controller	
 	
 }]);

@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 //Setting Routing
 app.get('/api/movies',router.allData);
 app.post('/api/movies/:query',router.selectData);
+app.put('/api/movies/rate/:id',router.addRate);
 app.put('/api/movies/:id',router.updateData);
 app.put('/api/movies',router.addData);
 app.set('port', (process.env.PORT || 5000));

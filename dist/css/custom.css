@@ -88,6 +88,12 @@
   	color: #fff;
 }
 
+detail-box>rate>label:focus,
+.detail-box>rate>label:hover {
+color: #c3ede7;
+background-color: #000;
+}
+
 .detail-word{
 	text-align: center;
 }
