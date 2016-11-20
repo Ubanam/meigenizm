@@ -38,10 +38,12 @@ var MovieSchema = new mongoose.Schema({
 	Origin:String, //発生元
 	OWords:String, //原文
 	Scene:String, //場面
+	package:String, //パッケージ
 	SadParam:Number, //泣けるパラメータ
 	LaughParam:Number, //笑えるパラメータ
 	HealParam:Number, //癒されるパラメータ
 	MotivateParam:Number, //やる気パラメータ
+	LoveParam:Number, //恋愛パラメータ
 	Rate:Number//評価レート
 });
 

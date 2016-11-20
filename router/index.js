@@ -31,7 +31,12 @@ exports.addRate = function(req, res){
 	console.log(movie);
 	Movie.update({ _id: movie._id },
 			{ $set: { 
-				Rate: movie.Rate + 1 //評価レート
+				Rate: movie.Rate, //評価レート
+				SadParam:movie.SadParam, //泣けるパラメータ
+				LaughParam:movie.LaughParam, //笑えるパラメータ
+				HealParam:movie.HealParam, //癒されるパラメータ
+				MotivateParam:movie.MotivateParam, //やる気パラメータ
+				LoveParam:movie.LoveParam //恋愛パラメータ
 				} 
 			}, 
 			function (err) {
@@ -66,10 +71,16 @@ exports.updateData = function(req, res){
 				Link: movie.Link,   //Amazon
 				Rakuten:movie.Rakuten,//楽天
 				Yahoo:movie.Yahoo,//yahoo
+				package:movie.package,//パッケージ
 				Recommends1:movie.Recommends1,//関連情報１
 				Rec1Text:movie.Rec1Text,//関連情報１
 				Recommends2:movie.Recommends2, //関連情報2
 				Rec2Text:movie.Rec2Text,//関連情報2
+				SadParam:movie.SadParam, //泣けるパラメータ
+				LaughParam:movie.LaughParam, //笑えるパラメータ
+				HealParam:movie.HealParam, //癒されるパラメータ
+				MotivateParam:movie.MotivateParam, //やる気パラメータ
+				LoveParam:movie.LoveParam, //恋愛パラメータ
 				Rate:movie.Rate//評価レート
 				} 
 			}, 

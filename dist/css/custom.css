@@ -88,10 +88,10 @@
   	color: #fff;
 }
 
-detail-box>rate>label:focus,
-.detail-box>rate>label:hover {
-color: #c3ede7;
-background-color: #000;
+
+.selected:hover {
+color: #000;
+background-color: #c3ede7;
 }
 
 .detail-word{

@@ -42,7 +42,15 @@
 			</div>
       <!--作品一覧　Start -->
       <h3>掲載作品一覧 {{movies.length}}作品</h3>
-			<div>
+      <!--タブリスト Start-->
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" ng-click = "changeInfo('info')">画像から探す</a></li>
+        <!--
+        <li><a data-toggle="tab" ng-click = "changeInfo('score')">評価順に探す</a></li>
+        <li><a data-toggle="tab" ng-click = "changeInfo('rev')">リストで検索</a></li>
+        -->
+      </ul>
+			<div >
 				<ul class="full-portfolio clearfix" id="Grid">
           <li class="mix col-xs-6 col-sm-4 col-md-3 col-lg-2 portfolio-item" ng-repeat = "movie in movies">
 					  <a ng-click = "moveDetail(movie)">
