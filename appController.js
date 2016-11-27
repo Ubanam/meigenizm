@@ -21,7 +21,7 @@ myApp.config(['$routeProvider', function($routeProvider,data) {
     .when('/index/', { controller:'IndexController', templateUrl: 'main.html' }) // templateUrlでテンプレートとなるファイルとテンプレ名を指定
     .when('/detail/', { controller:'DetailController', templateUrl: 'detail.html#top',reloadOnsearch:false }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/about/', { controller:'AboutController', templateUrl: 'about.html' }) // 同様にテンプレ指定（ここでは遷移後）
-    .when('/list/', { controller:'IndexController', templateUrl: 'list.html' }) // 同様にテンプレ指定（ここでは遷移後）
+    .when('/list/', { controller:'ListController', templateUrl: 'list.html' }) // 同様にテンプレ指定（ここでは遷移後）
     .otherwise({redirectTo: '/index/'}); // 初めに表示するテンプレ名
 		return data;
   }]);
@@ -135,4 +135,58 @@ myApp.controller('AboutController',['$scope', '$http','$resource','$location','m
 
   //End of Controller	
 	
+}]);
+
+myApp.controller('ListController',['$scope', '$http', '$location','$resource','movies', 'shareData', function ($scope, $http, $location, $resource, movies, shareData ){ 
+/////////////////////////////////////////////////
+//初期設定
+/////////////////////////////////////////////////
+	//Get the movielist data
+	$scope.movies = movies.query();
+	$scope.listFlg = false;
+	$scope.packageFlg = true;
+
+/////////////////////////////////////////////////
+//各ページへ遷移
+/////////////////////////////////////////////////
+	//詳細ページ
+	$scope.moveDetail = function(data){
+		shareData.data =data;
+		$location.path('/detail/');
+		$location.hash('top');
+		$anchorScroll();
+		console.log(data);
+	}
+	//メイゲニズムについて
+	$scope.moveAbout = function(){
+		$location.path('/about/');
+	}
+///////////////////////
+//詳細ページ
+//data:映画情報
+//////////////////////
+	//詳細ページ
+	$scope.moveDetail = function(data){
+		shareData.data =data;
+		$location.path('/detail/');
+		console.log(data);
+	}
+///////////////////////
+//タブ表示情報
+//param:タブ内容
+//////////////////////
+	$scope.changeInfo = function(param){
+		console.log("$scope.showInfo="+param);
+			switch(param){
+				case 1://画像順
+					$scope.listFlg = true;
+					$scope.packageFlg = false;
+				break;
+				case 2://パッケージ順
+					$scope.listFlg = false;
+					$scope.packageFlg = true;
+				break;
+			}
+	}	
+  //End of Controller	
 }]);

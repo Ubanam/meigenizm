@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="メイゲニズムは映画の名言を集めたサイトです。あなたの心に残る名言がきっと見つかります。">
+    <meta name="Keywords" content="メイゲニズム,映画,名言">
     <link rel="icon" href="favicon.ico">
     <title>Meigenizm the Movie</title>
     <!-- Bootstrap core CSS -->
@@ -33,38 +33,49 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js"></script>
    
     <!-- Controller ofAngularJS -->
-    <script src="./appController.js"></script>
+    <script src="./listController.js"></script>
   </head>
 
-  <body ng-controller = "IndexController">
-      <div class="container">
-				<div id="single-project"></div>
-			</div>
+  <body ng-controller = "ListController">
+  <div class="container">
       <!--作品一覧　Start -->
       <h3>掲載作品一覧 {{movies.length}}作品</h3>
       <!--タブリスト Start-->
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" ng-click = "changeInfo('info')">画像から探す</a></li>
-        <!--
-        <li><a data-toggle="tab" ng-click = "changeInfo('score')">評価順に探す</a></li>
-        <li><a data-toggle="tab" ng-click = "changeInfo('rev')">リストで検索</a></li>
-        -->
+        <li class="active"><a data-toggle="tab" ng-click = "changeInfo(2)">評価順で探す</a></li>
+        <li><a data-toggle="tab" ng-click = "changeInfo(1)">画像から探す</a></li>
       </ul>
-			<div >
+		  <div ng-show = "listFlg">
 				<ul class="full-portfolio clearfix" id="Grid">
           <li class="mix col-xs-6 col-sm-4 col-md-3 col-lg-2 portfolio-item" ng-repeat = "movie in movies">
+					    <a ng-click = "moveDetail(movie)">
+						    <img src={{movie.Image}} class="img-responsive" alt="">
+							  <div class="mask">
+								  <h4>{{movie.Title}}</h4>
+								  <div class="divider"><span></span></div>
+							  	<p class="font-m">{{movie.Year}}</p>
+							  </div>
+						  </a>
+            </li>
+				  </ul>
+			  </div>
+        <div class = "package-item" ng-show = "packageFlg">
+				  <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat = "movie in movies | orderBy:'-Rate'">
 					  <a ng-click = "moveDetail(movie)">
-							<img src={{movie.Image}} class="img-responsive" alt="">
+              <div class = "center" ng-bind-html="movie.Link"></div>
 							<div class="mask">
-								<h4>{{movie.Title}}</h4>
-								<div class="divider"><span></span></div>
-								<p class="font-m">{{movie.Year}}</p>
+							  <p class = "center">{{movie.Title}}({{movie.Year}})</p>
+                <div>
+                  <rating value="movie.Rate / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
+                  <label>{{movie.Rate}}pt</label>
+                </div>
+                <p> </p>
 							</div>
 						</a>
-          </li>
-				</ul>
-			</div>
+          </div>
+			  </div>
       <!-- 作品一覧 End -->
+      			</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

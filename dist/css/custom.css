@@ -271,6 +271,17 @@ blockquote {
 	color: #fff;
 }
 
+.package-item {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+  	flex-wrap: wrap;
+}
+.package-item p{
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap
+}
 /********************************************
 				ABOUT SECTION
 ********************************************/

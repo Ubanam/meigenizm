@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="メイゲニズムは映画の名言を集めたサイトです。あなたの心に残る名言がきっと見つかります。">
+    <meta name="Keywords" content="メイゲニズム,映画,名言">
     <link rel="icon" href="favicon.ico">
     <title>Meigenizm the Movie</title>
     <!-- Bootstrap core CSS -->
@@ -55,7 +55,7 @@
             <img class="first-slide" src="images/slider.jpg">
             <div class="container">
               <div class="carousel-caption">
-                <h3>メイゲニズムへようこそ</h3>
+                <h3>映画の名言を集めたメイゲニズムへようこそ</h3>
                 <p>（特に映画の）名言を集めました。</p>
                 <p><a class="btn btn-lg btn-primary" role="button" ng-click="moveAbout()">メイゲニズムについて</a></p>
               </div>
@@ -81,15 +81,6 @@
           <span class="sr-only">Next</span>
         </a>
       </div><!-- /.carousel -->
-      <!--映画の本棚 Start
-      <div id = "list">
-          <p>映画の本棚</p>
-          <div class = "titlelist">
-              <a  href="http://www.amazon.co.jp/gp/product/B01EHDFAUK/ref=as_li_qf_sp_asin_il?ie=UTF8&camp=247&creative=1211&creativeASIN=B01EHDFAUK&linkCode=as2&tag=worldtravelyo-22"><img border="0" src="http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01EHDFAUK&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=worldtravelyo-22" ></a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=worldtravelyo-22&l=as2&o=9&a=B01EHDFAUK" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-          </div>
-          <p>もっと見る</pre>
-      </div>
-        映画の本棚 End -->
       <!-- ピックアップ映画 Start-->  
       <div id = "pickup" class = "col-xs-12 col-sm-8">
         <h3>新着情報</h3>
@@ -98,18 +89,18 @@
         </div>
         <div class = "pickup">
           <h4>ピックアップ映画</h4>
-          <div class="row selected page-header">
+          <div class="row selected page-header" ng-click="moveDetail(movies[21])">
             <div class="col-sm-4 col-xs-4">
-              <img src={{movies[21].Image}} ng-click="moveDetail(movies[21])">
+              <img src={{movies[21].Image}} >
             </div>
             <div class="col-sm-8 col-xs-8">
               <p>{{movies[21].Meigen}}</p>
               <p>from {{movies[21].Title}}</p>
             </div>
           </div>
-          <div class="row selected page-header">
+          <div class="row selected page-header" ng-click="moveDetail(movies[4])">
             <div class="col-sm-4 col-xs-4">
-              <img src={{movies[4].Image}} ng-click="moveDetail(movies[4])">
+              <img src={{movies[4].Image}}>
             </div>
             <div class="col-sm-8 col-xs-8">
               <p>{{movies[4].Meigen}}</p>
@@ -117,13 +108,6 @@
             </div>
           </div>
         </div>
-        
-        <!--
-        <div class="page-header">
-          <img src = {{movies[0].package}}>
-          <p>{{movies[0].Title}}</p>
-        </div>
-        -->
       </div>
       <!-- ピックアップ映画 End -->
       <div id = "ranking" class = "col-sm-4">
