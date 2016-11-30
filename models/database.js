@@ -30,6 +30,7 @@ var MovieSchema = new mongoose.Schema({
 	Meigen:String, //名言
 	Story:String, //あらすじ
 	Image:String, //画像イメージ
+	ImgRef:String,//画像参照先
 	Type:String, //名言タイプ
 	Era:String, //時代
 	Job:String, //職業

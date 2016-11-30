@@ -60,6 +60,7 @@ exports.updateData = function(req, res){
 				Meigen: movie.Meigen, //名言
 				Story: movie.Story,  //あらすじ
 				Image: movie.Image,  //画像
+				ImgRef:movie.ImgRef,//画像参照先
 				Type: movie.Type,  //種類
 				Era:movie.Era, //時代
 				Job:movie.Job, //職業
