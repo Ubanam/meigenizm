@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="メイゲニズムは映画の名言を集めたサイトです。あなたの心に残る名言がきっと見つかります。">
     <meta name="Keywords" content="メイゲニズム,映画,名言">
-    <meta name="author" content="">
+    <meta name="author" content="Ubanam">
     <link rel="icon" href="favicon.ico">
     <title>映画の名言を集めたサイト メイゲニズム Meigenizm the Movie</title>
     <!-- Bootstrap core CSS -->
@@ -16,7 +16,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="dist/css/navbar-fixed-top.css" rel="stylesheet">
     <link href="dist/css/carousel.css" rel="stylesheet">
     <link href="dist/css/custom.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -32,7 +31,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-sanitize.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-sanitize.min.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-touch.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
 
     <!-- jQuery -->
@@ -69,21 +69,23 @@
               <li class="active"><a href="#home">ホーム</a></li>
               <li><a href="#/about/">メイゲニズムについて</a></li>
               <li><a href="#/list/">作品一覧</a></li>
-              <!--
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ジャンル別名言 <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">特集ページ<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#a">アクション</a></li>
-                  <li><a href="#a">スポーツ</a></li>
+                  <li><a href="#/recommends/facts/">実話に基づく映画</a></li>
+                  <li><a href="#/recommends/genius/">天才が主人公</a></li>
+                  <!--
                   <li><a href="#a">SF</a></li>
                   <li><a href="#a">ファンタジー</a></li>
-              
+                  -->
                   <li role="separator" class="divider"></li>
+                  <!--
                   <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
+                  -->
+                  <li><a href="#/recommends/">もっと見る</a></li>
                 </ul>
               </li>
+              <!--
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">年代別名言 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -117,6 +119,15 @@
             <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=2HUPZK+8649H6+3250+644DT" alt="">
           </div>
         </div>
+        <h4>ネットで今すぐ映画を購入</h4>
+        <div class="row">
+          <div class = "col-md-6">
+            <iframe src="//rcm-fe.amazon-adsystem.com/e/cm?t=httpmovietheatercinema.web.fc2.com-22&o=9&p=13&l=ur1&category=dvd_02&banner=0KT8XSRGFCQ015FCZAR2&f=ifr" width="468" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;max-width:800px;max-height:600px;" frameborder="0"></iframe>
+          </div>
+          <div class = "col-md-6">
+            <a href="https://hb.afl.rakuten.co.jp/hsc/1588814b.8db163f1.1588814c.7901c78c/?scid=af_shop_img&link_type=pict&ut=eyJwYWdlIjoic2hvcCIsInR5cGUiOiJwaWN0IiwiY29sIjowLCJjYXQiOiI4NSIsImJhbiI6IjEzNjA3MDIifQ%3D%3D" target="_blank" style="word-wrap:break-word;"  ><img src="https://hbb.afl.rakuten.co.jp/hsb/1588814b.8db163f1.1588814c.7901c78c/?me_id=1&me_adv_id=1360702&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+          </div>
+        </div>
       </div>
       <div id="footer">
         <div class="copy">
@@ -130,10 +141,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="dist/js/jquery-1.11.3.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

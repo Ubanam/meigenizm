@@ -15,8 +15,9 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
+    <link href="dist/css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="dist/css/carousel.css" rel="stylesheet">
     <link href="dist/css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="dist/css/slider-pro.min.css">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
@@ -31,7 +32,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-touch.js"></script>
     <!-- google-analytics -->
     <script>
      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -45,59 +45,12 @@
     <script src="./appController.js"></script>
   </head>
 
-  <body ng-controller = "IndexController" onselectstart="return false;" onmousedown="return false;">
-      <!-- Carousel-->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-      <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li ng-repeat="movie in movies" data-target="#myCarousel" data-slide-to={{$index+1}}></li>
-          <!--
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          -->
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img class="first-slide" src="images/slider.jpg">
-            <div class="container">
-              <div class="carousel-caption">
-                <h3>映画の名言を集めたメイゲニズムへようこそ</h3>
-                <p>（特に映画の）名言を集めました。</p>
-                <p><a class="btn btn-lg btn-primary" role="button" ng-click="moveAbout()">メイゲニズムについて</a></p>
-              </div>
-            </div>
-          </div>
-          <div ng-repeat="movie in movies" class="item">
-            <img class="second-slide" src={{movie.Image}}>
-            <div class="container">
-              <div class="carousel-caption">
-                <h3>{{movie.Meigen}}</h3>
-                <p>{{movie.Title}}</p>
-                <p><a class="btn btn-lg btn-primary"  role="button" ng-click = 'moveDetail(movie)'>詳細を見る</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="left carousel-control" href="/index/#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="/index/#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <!-- /.carousel -->
-      <!-- ピックアップ映画 Start-->  
+  <body ng-controller = "RecommendsController">
+    <div class = "container">
+    <!-- バックナンバー Start-->  
       <div id = "pickup" class = "col-xs-12 col-sm-8">
-        <h3>映画新着情報</h3>
-        <div class="page-header">
-          <p>ホームページをリニューアルしました。</p>
-        </div>
+        <h3>メイゲニズム　特集ページ</h3>
         <div class = "pickup">
-          <h4>オススメ映画の名言</h4>
           <div class="row selected page-header" ng-click="moveDetail(movies[21])">
             <div class="col-sm-4 col-xs-4">
               <img src={{movies[21].Image}} >
@@ -119,37 +72,13 @@
         </div>
       </div>
       <!-- ピックアップ映画 End -->
-      <div id = "ranking" class = "col-sm-4">
-        <!--特集ページ-->
-        <p>特集情報</p>
-        <div class = "img-box recommends">
-          <a href = "#/recommends/facts/">
-            <img src = "./recommends/img/fact.jpg" width = "100%">
-          </a>
-          <div class = "img-box-mini">
-            <h3 class = "img-box-text">実話映画特集</h3>
-          </div>
-        </div>
-        <div class = "img-box recommends">
-          <a href = "#/recommends/genius/">
-            <img src = "./recommends/img/genius.jpg" width = "100%">
-          </a>
-          <div class = "img-box-mini">
-            <h3 class = "img-box-text">天才映画特集</h3>
-          </div>
-        </div>
-        <div class = "img-box recommends">
-          <a href = "#/recommends/genius/">
-            <img src = "./recommends/img/money.jpg" width = "100%">
-          </a>
-          <div class = "img-box-mini">
-            <h3 class = "img-box-text">マネー映画特集</h3>
-          </div>
-        </div>
+      <div id = "pickup" class = "col-xs-12 col-sm-4">
+        test
       </div>
-      <div class="container">
-				
-			</div>
+    </div>
+      <!--
+      <div class = "container"></div>
+      -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

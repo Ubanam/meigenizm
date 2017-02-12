@@ -1,4 +1,4 @@
-var myApp = angular.module('meigenizm',['ngRoute','ngSanitize','ngResource','ui.bootstrap']);
+var myApp = angular.module('meigenizm',['ngRoute','ngSanitize','ngResource','ui.bootstrap','ngTouch']);
 
 //////////////////////////////////////////
 //Setting Factory
@@ -22,7 +22,11 @@ myApp.config(['$routeProvider', function($routeProvider,data) {
     .when('/detail/', { controller:'DetailController', templateUrl: 'detail.html#top',reloadOnsearch:false }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/about/', { controller:'AboutController', templateUrl: 'about.html' }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/list/', { controller:'ListController', templateUrl: 'list.html' }) // 同様にテンプレ指定（ここでは遷移後）
-    .otherwise({redirectTo: '/index/'}); // 初めに表示するテンプレ名
+	.when('/recommends/', { controller:'RecommendController', templateUrl: 'recommends.html' }) // 同様にテンプレ指定（ここでは遷移後）
+    .when('/recommends/facts/', { controller:'RecommendController', templateUrl: 'recommends/fact.html' }) // 同様にテンプレ指定（ここでは遷移後）
+    .when('/recommends/genius/', { controller:'RecommendController', templateUrl: 'recommends/genius.html' }) // 同様にテンプレ指定（ここでは遷移後）
+    
+	.otherwise({redirectTo: '/index/'}); // 初めに表示するテンプレ名
 		return data;
   }]);
 
@@ -31,7 +35,11 @@ myApp.factory('shareData', function(){
 	return shareData;	
 });
 
-myApp.controller('IndexController',['$scope', '$http', '$location','$resource','movies', 'shareData', function ($scope, $http, $location, $resource, movies, shareData ){ 
+/////////////////////////////////////////////////
+//IndexController
+//index.htmlのコントローラ
+/////////////////////////////////////////////////
+myApp.controller('IndexController',['$scope', '$http', '$location','$swipe','$resource','movies', 'shareData', function ($scope, $http, $location, $resource, $swipe, movies, shareData ){ 
 /////////////////////////////////////////////////
 //初期設定
 /////////////////////////////////////////////////
@@ -51,11 +59,36 @@ myApp.controller('IndexController',['$scope', '$http', '$location','$resource','
 	$scope.moveAbout = function(){
 		$location.path('/about/');
 	}
+	//var rootElement = angular.element("#carousel");
 
+    // ImageIteratorは単純にインデックスに対応する画像パスを取り出すだけなやつ
+    //var itr = new ImageIterator();
+
+    //var addImage = function(source) {
+    //  myApp.element(".carousel").remove();
+
+      // <div class="carousel"></div>
+     // var elm1 = myApp.element("<div>");
+     // elm1.addClass("carousel");
+
+      // <img src="..." class="carousel-img" />
+     // var elm2 = myApp.element("<img>");
+      //elm2.attr("src", source);
+      //elm2.addClass("carousel-img");
+
+      // <div class="carousel"><img src="..." class="carousel-img" /></div>
+      //elm1.append(elm2);
+
+      //rootElement.append(elm1);
+    //};
 	
   //End of Controller	
 }]);
 
+/////////////////////////////////////////////////
+//DetailController
+//detail.htmlのコントローラ
+/////////////////////////////////////////////////
 myApp.controller('DetailController',['$scope', '$http','$resource','$anchorScroll','$location','movies', 'shareData', function ($scope, $http, $resource, $anchorScroll, $location, movies, shareData ){ 
 /////////////////////////////////////////////////
 //初期設定
@@ -137,6 +170,10 @@ myApp.controller('AboutController',['$scope', '$http','$resource','$location','m
 	
 }]);
 
+/////////////////////////////////////////////////
+//ListController
+//list.htmlのコントローラ
+/////////////////////////////////////////////////
 myApp.controller('ListController',['$scope', '$http', '$location','$resource','movies', 'shareData', function ($scope, $http, $location, $resource, movies, shareData ){ 
 /////////////////////////////////////////////////
 //初期設定
@@ -188,5 +225,34 @@ myApp.controller('ListController',['$scope', '$http', '$location','$resource','m
 				break;
 			}
 	}	
+  //End of Controller	
+}]);
+
+/////////////////////////////////////////////////
+//RecommendController
+//recommends.htmlのコントローラ
+/////////////////////////////////////////////////
+myApp.controller('RecommendController',['$scope', '$http', '$location','$resource','movies', 'shareData', function ($scope, $http, $location, $resource, movies, shareData ){ 
+/////////////////////////////////////////////////
+//初期設定
+/////////////////////////////////////////////////
+	//Get the movielist data
+	$scope.movies = movies.query();
+
+/////////////////////////////////////////////////
+//各ページへ遷移
+/////////////////////////////////////////////////
+	//詳細ページ
+	$scope.moveDetail = function(data){
+		shareData.data =data;
+		$location.path('/detail/');
+		console.log(data);
+	}
+	//メイゲニズムについて
+	$scope.moveAbout = function(){
+		$location.path('/about/');
+	}
+
+	
   //End of Controller	
 }]);

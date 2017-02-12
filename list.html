@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="メイゲニズムは映画の名言を集めたサイトです。あなたの心に残る名言がきっと見つかります。">
+    <meta name="description" content="メイゲニズムは映画の名言を集めたサイトです。名言のある映画のリストを表示したリストページ。">
     <meta name="Keywords" content="メイゲニズム,映画,名言">
+    <meta name="author" content="Ubanam">
     <link rel="icon" href="favicon.ico">
     <title>Meigenizm the Movie</title>
     <!-- Bootstrap core CSS -->
@@ -31,7 +32,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js"></script>
-   
+       <!-- google-analytics -->
+    <script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-71703572-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
     <!-- Controller ofAngularJS -->
     <script src="./listController.js"></script>
   </head>
@@ -39,7 +49,7 @@
   <body ng-controller = "ListController">
   <div class="container">
       <!--作品一覧　Start -->
-      <h3>掲載作品一覧 {{movies.length}}作品</h3>
+      <h3>名言のある映画一覧 {{movies.length}}作品</h3>
       <!--タブリスト Start-->
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" ng-click = "changeInfo(2)">評価順で探す</a></li>
