@@ -59,37 +59,13 @@ myApp.controller('IndexController',['$scope', '$http', '$location','$swipe','$re
 	$scope.moveAbout = function(){
 		$location.path('/about/');
 	}
-	//var rootElement = angular.element("#carousel");
-
-    // ImageIteratorは単純にインデックスに対応する画像パスを取り出すだけなやつ
-    //var itr = new ImageIterator();
-
-    //var addImage = function(source) {
-    //  myApp.element(".carousel").remove();
-
-      // <div class="carousel"></div>
-     // var elm1 = myApp.element("<div>");
-     // elm1.addClass("carousel");
-
-      // <img src="..." class="carousel-img" />
-     // var elm2 = myApp.element("<img>");
-      //elm2.attr("src", source);
-      //elm2.addClass("carousel-img");
-
-      // <div class="carousel"><img src="..." class="carousel-img" /></div>
-      //elm1.append(elm2);
-
-      //rootElement.append(elm1);
-    //};
-	
-  //End of Controller	
 }]);
 
 /////////////////////////////////////////////////
 //DetailController
 //detail.htmlのコントローラ
 /////////////////////////////////////////////////
-myApp.controller('DetailController',['$scope', '$http','$resource','$anchorScroll','$location','movies', 'shareData', function ($scope, $http, $resource, $anchorScroll, $location, movies, shareData ){ 
+myApp.controller('DetailController',['$scope', '$http','$resource','$anchorScroll','$location','$sce', 'movies', 'shareData', function ($scope, $http, $resource, $anchorScroll, $location, $sce , movies, shareData ){ 
 /////////////////////////////////////////////////
 //初期設定
 /////////////////////////////////////////////////
@@ -98,6 +74,10 @@ myApp.controller('DetailController',['$scope', '$http','$resource','$anchorScrol
 	$scope.data = shareData.data;
 	$scope.devoteFlg = false; //投票済判定フラグ
 	$scope.showInfo = "info";//初期表示：作品情報
+	var trustedUrl = $scope.data.Notice;
+	if(trustedUrl!=null){
+	$scope.url = $sce.trustAsResourceUrl(trustedUrl);
+	}
 
 ///////////////////////////
 //投票する
@@ -164,12 +144,8 @@ myApp.controller('AboutController',['$scope', '$http','$resource','$location','m
 	//Get the movielist data
 	$scope.movies = movies.query();
 	$scope.data = shareData.data;
-
-
-  //End of Controller	
-	
+  //End of Controller
 }]);
-
 /////////////////////////////////////////////////
 //ListController
 //list.htmlのコントローラ
@@ -182,7 +158,6 @@ myApp.controller('ListController',['$scope', '$http', '$location','$resource','m
 	$scope.movies = movies.query();
 	$scope.listFlg = false;
 	$scope.packageFlg = true;
-
 /////////////////////////////////////////////////
 //各ページへ遷移
 /////////////////////////////////////////////////

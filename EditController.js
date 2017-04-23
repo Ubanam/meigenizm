@@ -1,5 +1,4 @@
 var myApp = angular.module('meigenizm',['ngResource']);
-
 myApp.factory('movies', ['$resource', function($resource){
 	var movies = $resource('/api/movies/:id/:Title/:Type/:data' , {id:'@id', Title:'@Title'}, {
 		get: {method: 'GET', isArray: true},

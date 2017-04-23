@@ -45,7 +45,9 @@ var MovieSchema = new mongoose.Schema({
 	HealParam:Number, //癒されるパラメータ
 	MotivateParam:Number, //やる気パラメータ
 	LoveParam:Number, //恋愛パラメータ
-	Rate:Number//評価レート
+	Rate:Number,//評価レート
+	Notice:String,//予告動画
+	Tweet:String//,ツイート情報
 });
 
 mongoose.model('Movie',MovieSchema);

@@ -82,7 +82,9 @@ exports.updateData = function(req, res){
 				HealParam:movie.HealParam, //癒されるパラメータ
 				MotivateParam:movie.MotivateParam, //やる気パラメータ
 				LoveParam:movie.LoveParam, //恋愛パラメータ
-				Rate:movie.Rate//評価レート
+				Rate:movie.Rate,//評価レート
+				Notice:movie.Notice,//予告動画
+				Tweet:movie.Tweet//ツイート情報
 				} 
 			}, 
 			function (err) {
