@@ -7,5 +7,19 @@
   <priority>1.0</priority>
   <lastmod>2017-04-23T12:27:55+09:00</lastmod>
 </url>
-
+<url>
+  <loc>https://meigenizm666.herokuapp.com/#/recommends/</loc>
+  <priority>0.8</priority>
+  <lastmod>2017-04-23T12:27:55+09:00</lastmod>
+</url>
+<url>
+  <loc>https://meigenizm666.herokuapp.com/#/recommends/facts/</loc>
+  <priority>0.8</priority>
+  <lastmod>2017-05-06T12:27:55+09:00</lastmod>
+</url>
+<url>
+  <loc>https://meigenizm666.herokuapp.com/#/recommends/genius/</loc>
+  <priority>0.8</priority>
+  <lastmod>2017-05-06T12:27:55+09:00</lastmod>
+</url>
 </urlset>
