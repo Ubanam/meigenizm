@@ -9,7 +9,7 @@ exports.allData = function(req, res){
 			res.json(movies)
 			};
 		}
-	);
+	).sort({'Id':1});
 };
 exports.selectData = function(req, res){
   console.log('getSelected is called!')
@@ -24,7 +24,7 @@ exports.selectData = function(req, res){
 	};
   });
 };
-
+//データの更新（レートのみ）
 exports.addRate = function(req, res){
 	var movie = req.body;
 	console.log('add Rate ↓');
@@ -46,13 +46,14 @@ exports.addRate = function(req, res){
 		res.json(movie);
 	});
 }
-
+//データの更新（全更新）
 exports.updateData = function(req, res){
 	var movie = req.body;
 	console.log('Update Data ↓');
 	console.log(movie);
 	Movie.update({ _id: movie._id },
 			{ $set: { 
+				Id:movie.Id, //作品ID
 				Title: movie.Title, //タイトル
 				Year: movie.Year,   //公開年度
 				Actor: movie.Actor, //俳優
@@ -94,10 +95,7 @@ exports.updateData = function(req, res){
 		res.json(movie);
 	});
 }
-
-
-
-
+//データの追加
 exports.addData = function(req, res){
 	var movie = new Movie(req.body);
 	console.log(movie);

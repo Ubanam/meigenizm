@@ -40,7 +40,7 @@ myApp.controller('EditController',['$scope','$http','movies', function ($scope, 
   $scope.addData = function(){
     $http.put('/api/movies/').success(function(data){
       console.log(data);
-    })
+    });
   }	
 }]);
 

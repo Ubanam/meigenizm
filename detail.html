@@ -101,17 +101,6 @@
 		</div>  
     <div id = "recommends" class="row">
       <div class = "col-sm-7">
-        <h4>関連情報</h4>  
-        <div class="row">
-          <div class = "col-xs-6">
-            <div ng-bind-html="data.Recommends1"></div>
-            <div ng-bind-html="data.Rec1Text"></div>
-          </div>
-          <div class = "col-xs-6">
-            <div ng-bind-html="data.Recommends2"></div>
-            <div ng-bind-html="data.Rec2Text"></div>
-          </div>
-        </div>
         <div class = "row">
           <!-- 作品情報タブ -->
           <ul class="nav nav-tabs">
@@ -145,7 +134,17 @@
               作成中
             </div>
           </div>
-
+          <h4>関連情報</h4>  
+          <div class="row">
+            <div class = "col-xs-6">
+              <div ng-bind-html="data.Recommends1"></div>
+              <div ng-bind-html="data.Rec1Text"></div>
+            </div>
+            <div class = "col-xs-6">
+              <div ng-bind-html="data.Recommends2"></div>
+              <div ng-bind-html="data.Rec2Text"></div>
+            </div>
+          </div>
         </div>
       </div>
       <!--総合ランキング-->

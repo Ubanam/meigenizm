@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="メイゲニズムは映画の名言を集めたサイトです。名言、映画の特集を紹介しています。実話に基づく映画の特集ページです。">
-    <meta name="Keywords" content="メイゲニズム,映画,名言">
+    <meta name="Keywords" content="映画,名言,メイゲニズム">
     <meta name="author" content="Ubanam">
     <link rel="icon" href="favicon.ico">
     <title>Meigenizm the Movie</title>
@@ -28,7 +28,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]--> 
     <!--  angularJS -->
-    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js"></script>
@@ -51,6 +50,40 @@
         <h2>実話に基づく映画の名言特集</h2>
         <p>実話を基にした映画は数多くあります。</p>
       </div>
+      <!-- 実話を元にした映画リスト Start-->  
+      <div id = "pickup" class = "col-xs-12 col-sm-8">
+        <div class = "pickup">
+          <h4>実話を元にしたオススメ映画一覧</h4>
+          <!-- モーターサイクルダイアリーズ -->
+          <div class="row selected page-header" ng-click="moveDetail(movies[1])">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movies[1].Image}} >
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <h4>{{movies[1].Title}}</h4>
+            </div>
+          </div>
+          <!-- 博士と彼女のセオリー -->
+          <div class="row selected page-header" ng-click="moveDetail(movies[27])">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movies[27].Image}}>
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <h4>{{movies[27].Title}}</h4>
+            </div>
+          </div>
+          <!-- ニュースの天才 -->
+          <div class="row selected page-header" ng-click="moveDetail(movies[29])">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movies[29].Image}}>
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <h4>{{movies[29].Title}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 実話を元にした映画リスト End -->
       <div class = "col-sm-4">
         <p>test</p>
       </div>

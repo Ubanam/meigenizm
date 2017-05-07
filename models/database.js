@@ -16,6 +16,7 @@ db = mongoose.connect(mURI, function (err, res) {
 //Define Schema
 
 var MovieSchema = new mongoose.Schema({
+	Id:Number,//作品Id
 	Title:String, //タイトル
 	Year:String, //公開年度
 	Actor:String, //俳優
