@@ -373,3 +373,34 @@ white-space: nowrap
     border-color: fuchsia;
     border-style: solid;
 }
+.test3 {
+    border-color: 000000;
+    border-style: solid;
+}
+
+/*********************************
+目次用
+*********************************/
+.section_b {
+  color: #ffffff ;
+  background: #000000;
+  font-size: 16pt ;
+  line-height: 1;
+  margin:10px 0px;
+  padding: 10px 5px 10px 5px;
+    box-shadow:1px 3px 7px 0px #666666 ;
+    border-top:4px solid #000000;
+    border-radius: 5px ;
+}
+
+.section_y {
+  color: #000000 ;
+  background: #FFE600;
+  font-size: 16pt ;
+  line-height: 1;
+  margin:10px 0px;
+  padding: 10px 5px 10px 5px;
+    box-shadow:1px 3px 7px 0px #666666 ;
+    border-top:4px solid #FFE600;
+    border-radius: 5px ;
+}
