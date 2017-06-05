@@ -20,7 +20,6 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -45,56 +44,9 @@
   </head>
 
   <body ng-controller = "IndexController" onselectstart="return false;" onmousedown="return false;">
-      <!-- Carousel-->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-      <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li ng-repeat="movie in movies" data-target="#myCarousel" data-slide-to={{$index+1}}></li>
-          <!--
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          -->
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img class="first-slide" src="images/slider.jpg">
-            <div class="container">
-              <div class="carousel-caption">
-                <h3>映画の名言を集めたメイゲニズムへようこそ</h3>
-                <p>映画の名言を集めました。</p>
-                <p><a class="btn btn-lg btn-primary" role="button" ng-click="moveAbout()">メイゲニズムについて</a></p>
-              </div>
-            </div>
-          </div>
-          <div ng-repeat="movie in movies" class="item">
-            <img class="second-slide" src={{movie.Image}}>
-            <div class="container">
-              <div class="carousel-caption">
-                <h3>{{movie.Meigen}}</h3>
-                <p>{{movie.Title}}</p>
-                <p><a class="btn btn-lg btn-primary"  role="button" ng-click = 'moveDetail(movie)'>詳細を見る</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="left carousel-control" href="/index/#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="/index/#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <!-- /.carousel -->
+  
       <!-- ピックアップ映画 Start-->  
       <div id = "pickup" class = "col-xs-12 col-sm-8 test">
-        <h4 class= "section_b">映画の名言　新着情報</h4>
-        <div class="page-header">
-          <p>ホームページをリニューアルしました。</p>
-        </div>
         <div class = "pickup">
           <h4 class= "section_b">新着映画の名言</h4>
           <div ng-repeat = "movie in movies | orderBy: '-Id' | limitTo:5">
@@ -111,12 +63,18 @@
               </div>
             </div>
           </div>
+          <!-- Nend ネイティブアド -->
+          <script type="text/javascript">
+            var nend_params = {"media":47966,"site":262281,"spot":761916,"type":10,"oriented":1}; 
+          </script>
+          <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+          <!-- Nend ネイティブアド -->
         </div>
       </div>
       <!-- ピックアップ映画 End -->
       <div id = "ranking" class = "col-xs-12 col-sm-4 test">
         <!--特集ページ-->
-        <h4 class="section_y">ピックアップ特集</h4>
+        <h4 class="section_y">ピックアップ映画特集</h4>
         <div class = "img-box recommends">
           <a href = "#/recommends/facts/">
             <img src = "./recommends/img/fact.jpg" width = "100%">
@@ -142,9 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="container">
-				
-			</div>
+      <div class="container"></div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

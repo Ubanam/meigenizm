@@ -22,6 +22,7 @@ myApp.config(['$routeProvider', function($routeProvider,data) {
     .when('/detail/', { controller:'DetailController', templateUrl: 'detail.html#top',reloadOnsearch:false }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/about/', { controller:'AboutController', templateUrl: 'about.html' }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/list/', { controller:'ListController', templateUrl: 'list.html' }) // 同様にテンプレ指定（ここでは遷移後）
+	.when('/test/', { controller:'IndexController', templateUrl: 'test.html' }) // 同様にテンプレ指定（ここでは遷移後）
 	.when('/recommends/', { controller:'RecommendController', templateUrl: 'recommends.html' }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/recommends/facts/', { controller:'RecommendController', templateUrl: 'recommends/fact.html' }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/recommends/genius/', { controller:'RecommendController', templateUrl: 'recommends/genius.html' }) // 同様にテンプレ指定（ここでは遷移後）
@@ -45,6 +46,7 @@ myApp.controller('IndexController',['$scope', '$http', '$location','$swipe','$re
 /////////////////////////////////////////////////
 	//Get the movielist data
 	$scope.movies = movies.query();
+	$scope.showSlide = true;
 
 /////////////////////////////////////////////////
 //各ページへ遷移
@@ -58,6 +60,9 @@ myApp.controller('IndexController',['$scope', '$http', '$location','$swipe','$re
 	//メイゲニズムについて
 	$scope.moveAbout = function(){
 		$location.path('/about/');
+	}
+	$scope.test = function(){
+		console.log("aaa");
 	}
 }]);
 
