@@ -404,3 +404,20 @@ white-space: nowrap
     border-top:4px solid #FFE600;
     border-radius: 5px ;
 }
+
+input {
+	  color: #000000 ;
+}
+/*
+ detail.htmlの出典元用に利用
+*/
+.reference{
+	  font-size: 8pt ;
+}
+
+/*
+textAreaの改行用クラス
+*/
+.pre-line {
+    white-space: pre-line;
+}

@@ -50,9 +50,6 @@
         <div class = "pickup">
           <h4 class= "section_b">新着映画の名言</h4>
           <div ng-repeat = "movie in movies | orderBy: '-Id' | limitTo:5">
-            <!-- 
-            <div class="row selected page-header" ng-click="moveDetail(movie)">
-            -->
             <div class="row selected" ng-click="moveDetail(movie)">
               <div class="col-sm-5 col-xs-5">
                 <img src={{movie.Image}} >
@@ -63,12 +60,6 @@
               </div>
             </div>
           </div>
-          <!-- Nend ネイティブアド -->
-          <script type="text/javascript">
-            var nend_params = {"media":47966,"site":262281,"spot":761916,"type":10,"oriented":1}; 
-          </script>
-          <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
-          <!-- Nend ネイティブアド -->
         </div>
       </div>
       <!-- ピックアップ映画 End -->
