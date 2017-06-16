@@ -46,7 +46,7 @@
   <body ng-controller = "IndexController" onselectstart="return false;" onmousedown="return false;">
   
       <!-- ピックアップ映画 Start-->  
-      <div id = "pickup" class = "col-xs-12 col-sm-8 test">
+      <div id = "pickup" class = "col-xs-12 col-sm-8">
         <div class = "pickup">
           <h4 class= "section_b">新着映画の名言</h4>
           <div ng-repeat = "movie in movies | orderBy: '-Id' | limitTo:5">

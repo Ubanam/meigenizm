@@ -48,7 +48,8 @@ var MovieSchema = new mongoose.Schema({
 	LoveParam:Number, //恋愛パラメータ
 	Rate:Number,//評価レート
 	Notice:String,//予告動画
-	Tweet:String//,ツイート情報
+	Tweet:String,//,ツイート情報
+	Appeal:String//見どころ
 });
 
 mongoose.model('Movie',MovieSchema);

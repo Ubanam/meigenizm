@@ -34,7 +34,8 @@
     <script src="./appController.js"></script>
   </head>
 
-  <body ng-controller = "DetailController as Detail"> 
+  <body ng-controller = "DetailController as Detail">
+  <div class = "container"> 
     <div class="col-xs-12 col-sm-12 detail">
 	    <div>
 		    <div id = "top" class="detail-box detail-word">
@@ -80,7 +81,7 @@
                   <label for="input-6" class="control-label">泣ける:</label>
                   <rating value="data.SadParam / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
                   <label for="input-6" class="control-label" style="text-align:right">{{data.SadParam}} /100 </label>
-               </div>
+                </div>
                 <div class = "selected" ng-click = "devote(data,5)">
                   <label for="input-6" class="control-label">ほのぼのする:</label>
                   <rating value="data.HealParam / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
@@ -92,7 +93,7 @@
       </div>
 		</div>  
     <div id = "recommends" class="row">
-      <div class = "co-xs-7 col-sm-7">
+      <div class = "co-xs-12 col-sm-7">
         <div class = "row">
         <!-- 作品情報 Start-->
           <div class="col-xs-12 col-sm12">
@@ -112,6 +113,8 @@
 				    <p>監督：{{data.Visor}}</p>
       	    <h3 class = "section_y">映画のあらすじ</h3>
       	    <p class = "pre-line" ng-bind= "data.Story"></p>
+            <h3 class = "section_y">映画の見どころ</h3>
+      	    <p class = "pre-line" ng-bind= "data.Appeal"></p>
       	    <h3 class="section_y">予告動画</h3>
       	    <div>
       		    <iframe width="100%" height = "315px" src={{url}} frameborder="0" allowfullscreen></iframe>
@@ -119,47 +122,16 @@
     	    </div>
         </div>
       </div>
-			<!-- 作品情報 End-->
-          <!-- 作品情報タブ -->
-          <!--
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" ng-click = "changeInfo('info')">作品情報</a></li>
-            <li><a data-toggle="tab" ng-click = "changeInfo('score')">作品評価</a></li>
-            <li><a data-toggle="tab" ng-click = "changeInfo('rev')">レビュー</a></li>
-          </ul>
-          -->
-          <!-- 作品タブでの表示
-          <div class="tab-content" ng-switch on = "showInfo">
-            <div class="col-sm-12 animate-switch active" id="tab1" ng-switch-when="info">
-              <h4>主演/監督</h4>
-              <p>{{data.Actor}}/{{data.Visor}}</p>
-              <h4>あらすじ</h4>
-              <p>{{data.Story}}</p>
-              <p>参照元：Wikipedia</p>
-              <h4>予告動画</h4>
-              <div>
-              <iframe width="100%" height = "315px" src={{url}} frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div> 
-            <div class="animate-switch" id="tab2" ng-switch-when="score">
-              作成中
-            </div>
-            <div class="animate-switch" id="tab3" ng-switch-when="rev">
-              作成中
-            </div>
-          </div>
-        </div>
-      </div>
-      -->
+
       <!--総合ランキング-->
-      <div class = "col-sm-5">
+      <div class = "col-xs-12 col-sm-5">
         <div class = "pickup">
           <h3 class = "section_b">投票ランキング</h3>
           <div class="row selected page-header" ng-repeat="movie in movies | orderBy:'-Rate' | limitTo:5" ng-click="moveDetail(movie)">
-            <div class="col-sm-4 col-xs-4">
+            <div class="col-xs-4 col-sm-4">
               <img src={{movie.Image}} ng-click="moveDetail(movie)">
             </div>
-            <div class="col-sm-8 col-xs-8">
+            <div class="col-xs-8 col-sm-8">
               <p>{{$index+1}}位:{{movie.Title}}</p>
               <p>{{movie.Meigen}}</p>
             </div>
@@ -168,6 +140,7 @@
         <!-- 類似ランキング-->
       </div>
     </div>
+  </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

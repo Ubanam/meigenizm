@@ -70,7 +70,7 @@ exports.updateData = function(req, res){
 				Origin:movie.Origin, //派生元
 				OWords:movie.OWords, //原文
 				Scene:movie.Scene, //場面
-				Link: movie.Link,   //Amazon
+				Link: movie.Link,   //作品リストに利用するURL
 				Rakuten:movie.Rakuten,//楽天
 				Yahoo:movie.Yahoo,//yahoo
 				package:movie.package,//パッケージ
@@ -85,7 +85,8 @@ exports.updateData = function(req, res){
 				LoveParam:movie.LoveParam, //恋愛パラメータ
 				Rate:movie.Rate,//評価レート
 				Notice:movie.Notice,//予告動画
-				Tweet:movie.Tweet//ツイート情報
+				Tweet:movie.Tweet,//ツイート情報
+				Appeal:movie.Appeal//見どころ
 				} 
 			}, 
 			function (err) {
