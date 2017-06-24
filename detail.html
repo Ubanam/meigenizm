@@ -35,8 +35,8 @@
   </head>
 
   <body ng-controller = "DetailController as Detail">
-  <div class = "container"> 
-    <div class="col-xs-12 col-sm-12 detail">
+  <div class = "container max-wide"> 
+    <div class="col-xs-12 col-sm-12 detail max-wide">
 	    <div>
 		    <div id = "top" class="detail-box detail-word">
 		      <h4>{{data.Meigen}}</h4>
@@ -92,11 +92,23 @@
           </div>
       </div>
 		</div>  
-    <div id = "recommends" class="row">
-      <div class = "co-xs-12 col-sm-7">
-        <div class = "row">
+    <div id = "recommends" class="row max-wide">
+      <div class = "co-xs-12 col-sm-7 max-wide">
+        <div class = "row max-wide">
         <!-- 作品情報 Start-->
-          <div class="col-xs-12 col-sm12">
+    	    <div class="col-xs-12 col-sm-12 max-wide">
+				    <h3 class="section_y">作品情報</h3>
+    		    <p>主演：{{data.Actor}}</p>
+				    <p>監督：{{data.Visor}}</p>
+            <p>公開年度：{{data.Year}}</p>
+      	    <h3 class = "section_y">映画のあらすじ</h3>
+      	    <p class = "pre-line" ng-bind= "data.Story"></p>
+            <h3 class = "section_y">映画の見どころ</h3>
+      	    <p class = "pre-line" ng-bind= "data.Appeal"></p>
+      	    <h3 class="section_y">予告動画</h3>
+      	    <div>
+      		    <iframe width="100%" height = "315px" src={{url}} frameborder="0" allowfullscreen></iframe>
+      	    </div>
             <h3 class = "section_y" >関連情報</h3>  
             <div class = "col-xs-6">
               <div ng-bind-html="data.Recommends1"></div>
@@ -107,24 +119,11 @@
               <div ng-bind-html="data.Rec2Text"></div>
             </div>
           </div>
-    	    <div class="col-xs-12 col-sm-12">
-				    <h3 class="section_y">作品情報</h3>
-    		    <p>主演：{{data.Actor}}</p>
-				    <p>監督：{{data.Visor}}</p>
-      	    <h3 class = "section_y">映画のあらすじ</h3>
-      	    <p class = "pre-line" ng-bind= "data.Story"></p>
-            <h3 class = "section_y">映画の見どころ</h3>
-      	    <p class = "pre-line" ng-bind= "data.Appeal"></p>
-      	    <h3 class="section_y">予告動画</h3>
-      	    <div>
-      		    <iframe width="100%" height = "315px" src={{url}} frameborder="0" allowfullscreen></iframe>
-      	    </div>
-    	    </div>
         </div>
       </div>
 
       <!--総合ランキング-->
-      <div class = "col-xs-12 col-sm-5">
+      <div class = "col-xs-12 col-sm-5 max-wide">
         <div class = "pickup">
           <h3 class = "section_b">投票ランキング</h3>
           <div class="row selected page-header" ng-repeat="movie in movies | orderBy:'-Rate' | limitTo:5" ng-click="moveDetail(movie)">

@@ -98,8 +98,10 @@
 
 
 .selected:hover {
-color: #000;
-background-color: #c3ede7;
+  color: #000;
+  background-color: #c3ede7;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .detail-word{
@@ -365,15 +367,15 @@ white-space: nowrap
 /************************************
  枠組確認テスト
 *************************************/
-.test1 {
+.testy {
     border-color: #FFE600;
     border-style: solid;
 }
-.test2 {
+.testp {
     border-color: fuchsia;
     border-style: solid;
 }
-.test3 {
+.testb {
     border-color: 000000;
     border-style: solid;
 }
@@ -381,6 +383,24 @@ white-space: nowrap
 /*********************************
 目次用
 *********************************/
+/*
+.max-wide
+ 幅を最大限広げるcss
+*/
+.max-wide{
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+/*
+.limit-high200
+ 高さのMaxを指定するcss
+*/
+.limit-high200{
+	max-height: 150px;
+}
+
 .section_b {
   color: #ffffff ;
   background: #000000;
@@ -388,9 +408,9 @@ white-space: nowrap
   line-height: 1;
   margin:10px 0px;
   padding: 10px 5px 10px 5px;
-    box-shadow:1px 3px 7px 0px #666666 ;
-    border-top:4px solid #000000;
-    border-radius: 5px ;
+  box-shadow:1px 3px 7px 0px #666666 ;
+  border-top:4px solid #000000;
+  border-radius: 5px ;
 }
 
 .section_y {
@@ -413,6 +433,7 @@ input {
 */
 .reference{
 	  font-size: 8pt ;
+	  word-wrap: break-word;
 }
 
 /*

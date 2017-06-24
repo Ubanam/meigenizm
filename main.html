@@ -44,26 +44,104 @@
   </head>
 
   <body ng-controller = "IndexController" onselectstart="return false;" onmousedown="return false;">
-  
-      <!-- ピックアップ映画 Start-->  
-      <div id = "pickup" class = "col-xs-12 col-sm-8">
+    <div class = "col-xs-12 col-sm-8 max-wide">
+      <!-- 傑作映画 Start-->  
+      <div class = "col-xs-12 col-sm-12 max-wide">
+        <h4 class= "section_b">傑作映画の名言</h4>
         <div class = "pickup">
-          <h4 class= "section_b">新着映画の名言</h4>
+          <!--アマデウス-->
+          <div class="row selected" ng-click="moveDetail(movies[42])">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movies[42].Image}} >
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <p>{{movies[42].Meigen}}</p>
+              <p>{{movies[42].Title}}</p>
+             </div>
+             <div class = "col-xs-12 col-sm-12 hidden-xs">
+               <p>{{movies[42].Appeal}}</p>
+             </div>
+             <div class = "col-xs-12 col-sm-12 visible-xs limit-high200">
+               <p>{{movies[42].Appeal.substr(0,100)}}...続きを読む</p>
+             </div>
+          </div>
+          <!--きっとうまくいく-->
+          <div class="row selected" ng-click="moveDetail(movies[9])">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movies[9].Image}} >
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <p>{{movies[9].Meigen}}</p>
+              <p>{{movies[9].Title}}</p>
+             </div>
+             <div class = "col-xs-12 col-sm-12 hidden-xs">
+               <p>{{movies[9].Appeal}}</p>
+             </div>
+             <div class = "col-xs-12 col-sm-12 visible-xs limit-high200">
+               <p>{{movies[9].Appeal.substr(0,100)}}...続きを読む</p>
+             </div>
+          </div>
+          <!--モーターサイクルダイアリーズ-->
+          <div class="row selected" ng-click="moveDetail(movies[1])">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movies[1].Image}} >
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <p>{{movies[1].Meigen}}</p>
+              <p>{{movies[1].Title}}</p>
+            </div>
+            <div class = "col-xs-12 col-sm-12 hidden-xs">
+              <p>{{movies[1].Appeal}}</p>
+            </div>
+            <div class = "col-xs-12 col-sm-12 visible-xs limit-high200">
+              <p>{{movies[1].Appeal.substr(0,100)}}...続きを読む</p>
+            </div>
+          </div>
+          <!--メメント-->
+          <div class="row selected" ng-click="moveDetail(movies[36])">
+            <div class="col-sm-4 col-xs-4">
+              <img src={{movies[36].Image}} >
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <p>{{movies[36].Meigen}}</p>
+              <p>{{movies[36].Title}}</p>
+            </div>
+            <div class = "col-xs-12 col-sm-12 hidden-xs">
+              <p>{{movies[36].Appeal}}</p>
+            </div>
+            <div class = "col-xs-12 col-sm-12 visible-xs limit-high200">
+              <p>{{movies[36].Appeal.substr(0,100)}}...続きを読む</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 傑作映画 End -->  
+      <!-- ピックアップ映画 Start-->  
+      <div id = "pickup" class = "col-xs-12 col-sm-12 max-wide">
+        <h4 class= "section_b">新着映画の名言</h4>
+        <div class = "pickup">
           <div ng-repeat = "movie in movies | orderBy: '-Id' | limitTo:5">
             <div class="row selected" ng-click="moveDetail(movie)">
-              <div class="col-sm-5 col-xs-5">
+              <div class="col-sm-4 col-xs-4">
                 <img src={{movie.Image}} >
               </div>
-              <div class="col-sm-7 col-xs-7">
+              <div class="col-sm-8 col-xs-8">
                 <p>{{movie.Meigen}}</p>
-                <p>from {{movie.Title}}</p>
+                <p>作品名 {{movie.Title}}</p>
+              </div>
+              <div class = "col-xs-12 col-sm-12 hidden-xs">
+                <p>{{movie.Appeal}}</p>
+              </div>
+              <div class = "col-xs-12 col-sm-12 visible-xs limit-high200">
+                <p>{{movie.Appeal.substr(0,100)}}...続きを読む</p>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- ピックアップ映画 End -->
-      <div id = "ranking" class = "col-xs-12 col-sm-4 test">
+    </div>
+      <div id = "ranking" class = "col-xs-12 col-sm-4 max-wide">
         <!--特集ページ-->
         <h4 class="section_y">ピックアップ映画特集</h4>
         <div class = "img-box recommends">
