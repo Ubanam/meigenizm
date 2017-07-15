@@ -18,7 +18,6 @@ myApp.controller('EditController',['$scope','$http','movies', function ($scope, 
 	$scope.movies = movies.query();
 	$scope.detailFlg = false;
 	$scope.detail = {};
-	
 
 ///////////////////////////////////
 //Data CRUD

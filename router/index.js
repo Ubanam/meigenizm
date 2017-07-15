@@ -14,9 +14,7 @@ exports.allData = function(req, res){
 exports.selectData = function(req, res){
   console.log('getSelected is called!')
   // movieモデルのfindメソッドで一覧を取得
-  console.log('getSelected() is executed!');
-  var query = req.body;
-  Movie.find(query,function(err, movies) {
+  Movie.find({Id:req.params.id} ,function(err, movies) {
     if(!err){
       res.json(movies);
     }else{

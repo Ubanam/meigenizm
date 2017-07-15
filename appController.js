@@ -5,11 +5,11 @@ var myApp = angular.module('meigenizm',['ngRoute','ngSanitize','ngResource','ui.
 //////////////////////////////////////////
 myApp.factory('movies', ['$resource', function($resource){
 	var movies = $resource(
-	  '/api/movies/:query', 
-	  {query:'@query'}, {
+	  '/api/movies/:id', 
+	  {id:'@id'}, {
 		get: {method: 'GET',isArray:true},
 		query: {method: 'GET', isArray: true},
-		select:{method: 'POST',isArray:true},
+		select:{method: 'GET',isArray:true},
 		save: {method: 'POST'},
 		remove: {method: 'DELETE'}
 	});
@@ -19,7 +19,7 @@ myApp.factory('movies', ['$resource', function($resource){
 myApp.config(['$routeProvider', function($routeProvider,data) {
 	$routeProvider
     .when('/index/', { controller:'IndexController', templateUrl: 'main.html' }) // templateUrlでテンプレートとなるファイルとテンプレ名を指定
-    .when('/detail/', { controller:'DetailController', templateUrl: 'detail.html#top',reloadOnsearch:false }) // 同様にテンプレ指定（ここでは遷移後）
+    .when('/detail/:id', { controller:'DetailController', templateUrl: 'detail.html',reloadOnsearch:false }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/about/', { controller:'AboutController', templateUrl: 'about.html' }) // 同様にテンプレ指定（ここでは遷移後）
     .when('/list/', { controller:'ListController', templateUrl: 'list.html' }) // 同様にテンプレ指定（ここでは遷移後）
 	.when('/test/', { controller:'IndexController', templateUrl: 'test.html' }) // 同様にテンプレ指定（ここでは遷移後）
@@ -40,21 +40,21 @@ myApp.factory('shareData', function(){
 //IndexController
 //index.htmlのコントローラ
 /////////////////////////////////////////////////
-myApp.controller('IndexController',['$scope', '$http', '$location','$swipe','$resource','movies', 'shareData', function ($scope, $http, $location, $resource, $swipe, movies, shareData ){ 
+myApp.controller('IndexController',['$scope', '$routeParams','$http', '$location','$swipe','$resource','movies', 'shareData', function ($scope, $routeParams, $http, $location, $resource, $swipe, movies, shareData ){ 
 /////////////////////////////////////////////////
 //初期設定
 /////////////////////////////////////////////////
 	//Get the movielist data
 	$scope.movies = movies.query();
 	$scope.showSlide = true;
-
+	$scope.$watch(movies.url,'movies.query()');
 /////////////////////////////////////////////////
 //各ページへ遷移
 /////////////////////////////////////////////////
 	//詳細ページ
 	$scope.moveDetail = function(data){
 		shareData.data =data;
-		$location.path('/detail/');
+		$location.path('/detail/'+data.Id);
 		console.log(data);
 	}
 	//メイゲニズムについて
@@ -70,19 +70,21 @@ myApp.controller('IndexController',['$scope', '$http', '$location','$swipe','$re
 //DetailController
 //detail.htmlのコントローラ
 /////////////////////////////////////////////////
-myApp.controller('DetailController',['$scope', '$http','$resource','$anchorScroll','$location','$sce', 'movies', 'shareData', function ($scope, $http, $resource, $anchorScroll, $location, $sce , movies, shareData ){ 
+myApp.controller('DetailController',['$scope', '$routeParams','$http','$resource','$anchorScroll','$location','$sce', 'movies', 'shareData', function ($scope, $routeParams, $http, $resource, $anchorScroll, $location, $sce , movies, shareData ){ 
 /////////////////////////////////////////////////
 //初期設定
 /////////////////////////////////////////////////
 	//Get the movielist data
+	$scope.id = parseInt($routeParams.id) - 1;
+	console.log($scope.id);
 	$scope.movies = movies.query();
 	$scope.data = shareData.data;
 	$scope.devoteFlg = false; //投票済判定フラグ
 	$scope.showInfo = "info";//初期表示：作品情報
-	var trustedUrl = $scope.data.Notice;
-	if(trustedUrl!=null){
-	$scope.url = $sce.trustAsResourceUrl(trustedUrl);
-	}
+	//var trustedUrl = $scope.movies[$scope.id].Notice;
+	//if(trustedUrl!=null){
+	//$scope.url = $sce.trustAsResourceUrl(trustedUrl);
+	//}
 
 ///////////////////////////
 //投票する
@@ -128,6 +130,7 @@ myApp.controller('DetailController',['$scope', '$http','$resource','$anchorScrol
 		$location.hash('top');
 		$anchorScroll();
 		$scope.devoteFlg = false;
+		$scope.url = $sce.trustAsResourceUrl($scope.data.Notice);
 		//ハッシュクリア
 	}
 ///////////////////////

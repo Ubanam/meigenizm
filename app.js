@@ -14,7 +14,7 @@ var router =  require('./router');
 app.use(bodyParser.json());
 //Setting Routing
 app.get('/api/movies',router.allData);
-app.post('/api/movies/:query',router.selectData);
+app.get('/api/movies/:id',router.selectData);
 app.put('/api/movies/rate/:id',router.addRate);
 app.put('/api/movies/:id',router.updateData);
 app.put('/api/movies',router.addData);

@@ -39,50 +39,50 @@
     <div class="col-xs-12 col-sm-12 detail max-wide">
 	    <div>
 		    <div id = "top" class="detail-box detail-word">
-		      <h4>{{movies[id].Meigen}}</h4>
+		      <h4>{{data.Meigen}}</h4>
 		    </div>
           <div class = "row">
             <div class = "col-xs-12 col-sm-6">
               <div class="detail-border">
-                <img src =  {{movies[id].Image}} class = "img-responsive center-block"/>
-                <p class = "reference">{{movies[id].ImgRef}}</p>
+                <img src =  {{data.Image}} class = "img-responsive center-block"/>
+                <p class = "reference">{{data.ImgRef}}</p>
               </div>
             </div>
             <div class = "col-xs-12 col-sm-6">
               <div class = "detail-box">
                 <h4名言</h4>
-                <h4>{{movies[id].Title}}({{movies[id].Year}})</h4>
+                <h4>{{data.Title}}({{data.Year}})</h4>
               </div>
               <div class = "detail-box">
                 <div>
                   <label for="input-6" class="control-label">獲得投票数:{{data.Rate}}</label>
                   <label for="input-6" class="control-label" style="text-align:right"></label>
                   <label ng-if="devote">
-                    <a class = "btn" ng-click="devote(movies[id])" ng-hide="devoteFlg">未投票</a>
+                    <a class = "btn" ng-click="devote(data)" ng-hide="devoteFlg">未投票</a>
                     <a class = "btn disablesd" ng-show="devoteFlg">投票済</a>
                   </label>
                 </div>
-                <div class = "selected" ng-click = "devote(movies[id],1)">
+                <div class = "selected" ng-click = "devote(data,1)">
                   <label for="input-6" class="control-label">スッキリする:</label>
                   <rating value="data.MotivateParam / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
                   <label for="input-6" class="control-label" style="text-align:right">{{data.MotivateParam}} /100 </label>
                 </div>
-                <div class = "selected" ng-click = "devote(movies[id],2)">
+                <div class = "selected" ng-click = "devote(data,2)">
                   <label for="input-6" class="control-label">笑える:</label>
                   <rating value="data.LaughParam / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
                   <label for="input-6" class="control-label" style="text-align:right">{{data.LaughParam}} /100 </label>
                 </div>
-                <div class = "selected" ng-click = "devote(movies[id],3)">
+                <div class = "selected" ng-click = "devote(data,3)">
                   <label for="input-6" class="control-label">恋する:</label>
                   <rating value="data.LoveParam / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
                   <label for="input-6" class="control-label" style="text-align:right">{{data.LoveParam}} /100 </label>
                 </div>
-                <div class = "selected" ng-click = "devote(movies[id],4)">
+                <div class = "selected" ng-click = "devote(data,4)">
                   <label for="input-6" class="control-label">泣ける:</label>
                   <rating value="data.SadParam / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
                   <label for="input-6" class="control-label" style="text-align:right">{{data.SadParam}} /100 </label>
                 </div>
-                <div class = "selected" ng-click = "devote(movies[id],5)">
+                <div class = "selected" ng-click = "devote(data,5)">
                   <label for="input-6" class="control-label">ほのぼのする:</label>
                   <rating value="data.HealParam / 20" readonly="true" data-max = "5" data-step ="0.05"></rating>
                   <label for="input-6" class="control-label" style="text-align:right">{{data.HealParam}} /100 </label>
@@ -100,19 +100,19 @@
 				    <h3 class="section_y">作品情報</h3>
             <div class = "row">
               <div class = "col-xs-4 col-sm-4 col-lg-4">
-                <div ng-bind-html="movies[id].Recommends1"></div>
-                <div ng-bind-html="movies[id].Rec1Text"></div>
+                <div ng-bind-html="data.Recommends1"></div>
+                <div ng-bind-html="data.Rec1Text"></div>
              </div>
              <div class = "col-xs-8 col-sm-8 col-lg-8">
-        		    <p>主演：{{movies[id].Actor}}</p>
-	  	  		    <p>監督：{{movies[id].Visor}}</p>
-                <p>公開年度：{{movies[id].Year}}</p>
+        		    <p>主演：{{data.Actor}}</p>
+	  	  		    <p>監督：{{data.Visor}}</p>
+                <p>公開年度：{{data.Year}}</p>
              </div>
             </div>
       	    <h3 class = "section_y">映画のあらすじ</h3>
-      	    <p class = "pre-line" ng-bind= "movies[id].Story"></p>
+      	    <p class = "pre-line" ng-bind= "data.Story"></p>
             <h3 class = "section_y">映画の見どころ</h3>
-      	    <p class = "pre-line" ng-bind= "movies[id].Appeal"></p>
+      	    <p class = "pre-line" ng-bind= "data.Appeal"></p>
       	    <h3 class="section_y">予告動画</h3>
       	    <div>
       		    <iframe width="100%" height = "315px" src={{url}} frameborder="0" allowfullscreen></iframe>
@@ -120,12 +120,12 @@
             <pre>{{url}}</pre>
             <h3 class = "section_y" >関連情報</h3>  
             <div class = "col-xs-6">
-              <div ng-bind-html="movies[id].Recommends1"></div>
-              <div ng-bind-html="movies[id].Rec1Text"></div>
+              <div ng-bind-html="data.Recommends1"></div>
+              <div ng-bind-html="data.Rec1Text"></div>
             </div>
             <div class = "col-xs-6">
-              <div ng-bind-html="movies[id].Recommends2"></div>
-              <div ng-bind-html="movies[id].Rec2Text"></div>
+              <div ng-bind-html="data.Recommends2"></div>
+              <div ng-bind-html="data.Rec2Text"></div>
             </div>
           </div>
         </div>
